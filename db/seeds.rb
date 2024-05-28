@@ -6,4 +6,9 @@
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+p 'creating user'
+user = User.create(email: 'boris@lewago.org', password: 123456)
+p ' creating ingredients'
+Ingredient.create(name: 'eggs', measurement: 'unit', amount: 5, user: user)
+Ingredient.create(name: 'corn', measurement: 'g', amount: 500, user: user)
+Ingredient.create(name: 'beef', measurement: 'g', amount: 500, user: user)
