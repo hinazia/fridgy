@@ -1,0 +1,6 @@
+<%= simple_form_for @ingredient do |f| %>
+  <%= f.input :amount %>
+  <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
+  <%= f.input :name %>
+  <%= f.button :submit, 'Add Ingredient' %>
+<% end %>
