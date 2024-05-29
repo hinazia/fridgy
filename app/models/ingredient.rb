@@ -5,4 +5,6 @@ class Ingredient < ApplicationRecord
   validates :name, :amount, :measurement, presence: true
 
   MEASUREMENTS = ['ml', 'g', 'kg', 'l', 'mg', 'tsp', 'tbsp', 'cup', 'pint', 'quart', 'gallon', 'oz', 'lb']
+  MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner']
+  CATEGORIES = ['Asian', 'Balkan', 'Japanise', 'Pakistani', 'Brazilian']
 end
