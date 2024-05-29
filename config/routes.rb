@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :ingredients, only: [:index, :show, :new, :create]
+  get "/set_meal_type", to: "ingredients#set_meal_type"
+  get "/set_category", to: "ingredients#set_category"
+  resources :recipes, only: [:index, :show, :create]
+
 end
