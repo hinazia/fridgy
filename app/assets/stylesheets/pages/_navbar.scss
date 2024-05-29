@@ -1,0 +1,31 @@
+#website-title {
+  display:inline;
+  font-size: 20px;
+  color: rgb(255, 127, 62);
+}
+
+.navbar-lewagon.sticky-top {
+  z-index: 1030;
+}
+
+.navbar {
+  .nav-link {
+    color: #000;
+
+    &:hover {
+      color: rgb(255, 127, 62);
+    }
+  }
+}
+
+.avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color:#19191a;
+    opacity: 0.8;
+  }
+}
