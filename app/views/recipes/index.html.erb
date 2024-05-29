@@ -1,0 +1,6 @@
+<%=  @recipe %>
+<% @recipes.each do |recipe| %>
+  <%= recipe.id %>
+  <%= recipe.title %><br><br>
+  <%= recipe.content %><br><br>
+<% end %>
