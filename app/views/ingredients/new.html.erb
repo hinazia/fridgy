@@ -1,6 +1,11 @@
-<%= simple_form_for @ingredient do |f| %>
-  <%= f.input :amount %>
-  <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
-  <%= f.input :name %>
-  <%= f.button :submit, 'Add Ingredient' %>
-<% end %>
+<div class="container">
+  <h1>Add a new ingredient</h1>
+
+  <%= simple_form_for(@ingredient) do |f| %>
+    <div class="Input-fields">
+      <%= f.input :name %>
+      <%= f.input :measurement %>
+    </div>
+    <%= f.submit "Add a new ingredient", class:"button"%>
+  <% end %>
+</div>
