@@ -17,7 +17,7 @@ class ChatService
       ingredients += "#{ingredient.amount} #{ingredient.measurement} of #{ingredient.name},"
     end
     # Build a string to send to ChatGPT with ingredients, meal_type and category
-    @prompt = "Hello ChatGPT!! Please, Can you give me the Recipe based on these #{ingredients} for a #{@meal_type} meal, of the  #{@category} cuisine. Please return a JSON with the information in the following format: {'title': Title of the Recipe, 'content': Intructions of the recipe}"
+    @prompt = "Hello ChatGPT!! Please, can you give me a recipe based on these ingredients: #{ingredients} for a #{@meal_type} meal of the #{@category} cuisine. Please return a JSON with the information in the following format: {\"title\": \"Title of the Recipe\", \"content\": \"Instructions of the recipe\"}. Ensure the JSON is valid by escaping special characters and removing any newlines."
   end
 
   def send_prompt_to_api
