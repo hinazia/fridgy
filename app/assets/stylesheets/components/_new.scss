@@ -1,12 +1,38 @@
-.button {
-  color: blue;
-}
+// .container {
+//   text-align: center;
+// }
 
-.container {
-  text-align: center;
-}
+// .Input-fields {
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 5px;
+// }
 
-.Input-fields {
+// .button {
+//   padding:35px 0px;
+//   width: 50px;
+//   border-radius: 15px;
+// }
+
+// .container {
+//   text-align: center;
+//   width: 100%;
+//   max-width: 600px;
+//   margin: auto;
+//   padding: 20px;
+// }
+
+// .row {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 5px;
+// }
+
+.btn-primary {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:250px;
+  padding:10px;
+  margin: auto;
 }
