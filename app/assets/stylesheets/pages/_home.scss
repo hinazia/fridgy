@@ -1,5 +1,88 @@
-// Specific CSS for your home-page
+background-color{
+  background-color: #fbfbfb;
+}
+
+// user section
 h1 {
+  font-size: 20px;
+  font-weight: 500;
   font-family: poppins;
-  color: red;
+  color: rgb(6, 6, 6);
+  margin-bottom: 2px;
+  margin: opx;
+}
+
+p {
+  font-size: 15px;
+  margin-top: 0px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.avatar-large {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// select meal type section
+
+h2 {
+  font-size: 18px;
+  font-family: poppins;
+  color: rgb(6, 6, 6);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+// Ingredients with search section
+
+.search-form-control {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 60px;
+  color: grey;
+  font-size: 15px;
+  margin: 0;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: none;
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #FE6D0E;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.fas fa-search {
+  margin-left: 40px;
+
 }
