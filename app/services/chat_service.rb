@@ -31,5 +31,6 @@ class ChatService
   end
 
   def set_title_and_content
+    recipe_conte
   end
 end
