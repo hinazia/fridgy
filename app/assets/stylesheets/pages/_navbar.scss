@@ -1,31 +1,37 @@
-#website-title {
-  display:inline;
-  font-size: 20px;
-  color: rgb(255, 127, 62);
-}
+@import url('https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
-.navbar-lewagon.sticky-top {
-  z-index: 1030;
-}
 
 .navbar {
-  .nav-link {
-    color: #000;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-    &:hover {
-      color: rgb(255, 127, 62);
-    }
+.navbar a {
+  display: block;
+  color: #d7d7d7;
+  text-align: center;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-size: 17px;
+  i {
+    font-size: 20px;
   }
 }
 
-.avatar {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  &:hover {
-    background-color:#19191a;
-    opacity: 0.8;
-  }
+.navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+  border-radius: 15px;
+}
+
+.navbar a.active {
+  background-color: #FE6D0E;
+  color: white;
+  border-radius: 15px;
 }
