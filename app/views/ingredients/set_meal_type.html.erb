@@ -1,10 +1,13 @@
 <h2>This is where we set the Meal type</h2>
 <%= session[:ingredients_ids] %>
-<%= form_with url:"/set_category", method: :get do |f|%>
-  <% Ingredient::MEAL_TYPES.each do |meal_type| %>
-    <%= radio_button_tag 'meal_type', meal_type %>
-    <%= f.label meal_type %>
-  <% end %>
-  <%= f.submit "Choose the Category" %>
+<%= simple_form_for :meal_types, url:"/set_category", method: :get do |f|%>
+    <%= f.input :meal_type,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: ['Breakfast', 'Lunch', 'Dinner'], legend_tag: false%>
+  <%= f.submit "Choose the Category", class:"submit-button" %>
 
 <% end %>
