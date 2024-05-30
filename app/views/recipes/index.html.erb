@@ -1,6 +1,14 @@
-<%=  @recipe %>
-<% @recipes.each do |recipe| %>
-  <%= recipe.id %>
-  <%= recipe.title %><br><br>
-  <%= recipe.content %><br><br>
-<% end %>
+
+
+<div class="suggested-recipes">
+  <h1 style="margin-top: 80px;">Choose one of these recipes:</h1>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <a href="/recipes/<%= recipe.id %>" class="recipe-wrapper">
+        <div class="recipe-body">
+           <h2><%= recipe.title %></h2>
+        </div>
+     </a>
+    </div>
+  <% end %>
+</div>
