@@ -2,3 +2,11 @@ This is the ingredients index
 <% @ingredients.each do |ingredient| %>
   <%= ingredient.name %>
 <%end %>
+
+<%= form_with url: "/set_meal_type", method: :get do |f| %>
+<% @ingredients.each do |ingredient| %>
+  <%= check_box_tag 'ingredients_ids[]', ingredient.id %>
+  <%= ingredient.name %>
+  <% end %>
+  <%= f.submit "Choose the Meal_type" %>
+<% end %>
