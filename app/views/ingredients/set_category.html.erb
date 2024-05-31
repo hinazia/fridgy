@@ -1,6 +1,4 @@
-<h2>Hello Session</h2>
-<%= session[:ingredients_ids] %>
-<%= session[:meal_type] %>
+<h1 class="headline">Choose your cuisine</h1>
 
 <%= form_with url: recipes_path, method: :post do |f| %>
   <div class="button-group">
@@ -11,5 +9,7 @@
       </div>
     <% end %>
   </div>
-  <%= f.submit 'Generate Recipe', class: 'submit-button' %>
+  <div class="align-box">
+  <%= f.submit 'Generate Recipe', class: 'submit-button-label' %>
 <% end %>
+</div>

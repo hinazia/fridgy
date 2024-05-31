@@ -1,3 +1,14 @@
+.headline {
+  font-size: 25px;
+  font-weight: 500;
+  font-family: poppins;
+  color: rgb(4, 4, 4);
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+
+}
+
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -15,26 +26,39 @@ input[type="radio"] {
 }
 
 .button-label {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  border-radius: 10px;
   background-color: #E0E0E0;
   cursor: pointer;
   text-align: center;
-  min-width: 120px; /* Anpassbar je nach gewünschter Breite */
+  min-width: 154px;
   margin: 5px;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
 input[type="radio"]:checked + .button-label {
-  background-color: #333333; /* Farbe für ausgewählten Button */
+  background-color: #FE6D0E;
   color: white;
 }
 
+.submit-button-label {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #FE6D0E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: default;
+}
 
 
 .submit-button:hover {
-  background-color: #E65C00; /* Hover-Effekt für den Button */
+  background-color: #E65C00;
 }
-
