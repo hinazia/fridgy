@@ -1,0 +1,68 @@
+/* Adjustments to fit your requirements */
+.suggested-recipes {
+  display: grid;
+  gap: 25px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.recipe-wrapper {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(202, 197, 197, 0.3)), url('food_placeholder.jpeg');
+  background-size: 100%;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+
+.recipe-wrapper:hover {
+  background-size: 110%;
+  transition: background-size 0.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 20px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.recipe-wrapper .recipe-body h2 {
+  color: white;
+  margin: 0;
+  padding: 30px;
+  font-size: 30px;
+  align-self: center;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .recipe-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .recipe-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .recipe-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .recipe-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .recipe-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
