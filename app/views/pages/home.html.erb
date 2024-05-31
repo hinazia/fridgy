@@ -8,9 +8,61 @@
   </div>
 </div>
 
+<!-- This is the add new ingredient section -->
+<div class="container">
+  <h1>Add a ingredient</h1>
+
+  <%= simple_form_for(@ingredient) do |f| %>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :name, placeholder: 'your Ingredient', label: false %>
+      </div>
+      <div class="col-3">
+        <%= f.input :measurement, collection: Ingredient::MEASUREMENTS, placeholder: 'Measurement', label: false%>
+      </div>
+      <div class="col-3">
+        <%= f.input  :amount, label: false, as: :numeric, input_html: { min: '0', step: 'any' }  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <%= f.submit "Add your Ingredient", class:"btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- display ingredients-list -->
+
+<% @ingredients.each do |ingredient| %>
+  <%= ingredient.name %>
+<%end %>
+
+<%= form_with url: "/set_meal_type", method: :get do |f| %>
+<% @ingredients.each do |ingredient| %>
+  <%= check_box_tag 'ingredients_ids[]', ingredient.id %>
+  <%= ingredient.name %>
+  <% end %>
+  <%= f.submit "Choose the Meal_type" %>
+<% end %>
+
 <!-- select meal type section -->
 
 <h2>Select the meal you want to cook</h2>
+<div class="meal-cards">
+  <div class="card">
+    <img src="path/to/breakfast.jpg" alt="Breakfast" class="card-image">
+    <div class="card-text">Breakfast</div>
+  </div>
+  <div class="card">
+    <img src="path/to/lunch.jpg" alt="Lunch" class="card-image">
+    <div class="card-text">Lunch</div>
+  </div>
+  <div class="card">
+    <img src="path/to/dinner.jpg" alt="Dinner" class="card-image">
+    <div class="card-text">Dinner</div>
+  </div>
+</div>
 
 <!-- Ingredients with search section -->
 

@@ -2,10 +2,14 @@
 <%= session[:ingredients_ids] %>
 <%= session[:meal_type] %>
 
-<%= form_with url:recipes_path, method: :post do |f|%>
-  <% Ingredient::CATEGORIES.each do |category| %>
-    <%= radio_button_tag 'category', category %>
-    <%= f.label category %>
-  <% end %>
-  <%= f.submit %>
+<%= form_with url: recipes_path, method: :post do |f| %>
+  <div class="button-group">
+    <% Ingredient::CATEGORIES.each do |category| %>
+      <div class="button-wrapper">
+        <%= radio_button_tag 'category', category, false, id: category %>
+        <%= label_tag category, category, class: 'button-label' %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.submit 'Generate Recipe', class: 'submit-button' %>
 <% end %>

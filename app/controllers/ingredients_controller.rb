@@ -1,10 +1,8 @@
 class IngredientsController < ApplicationController
   def index
     @ingredients = current_user.ingredients
-  end
-
-  def new
     @ingredient = Ingredient.new
+
   end
 
   def create
@@ -12,15 +10,8 @@ class IngredientsController < ApplicationController
     @ingredient.user = current_user
 
     if @ingredient.save
-      redirect_to @ingredient
-
-    else
-      render 'new'
+      redirect_to root_path
     end
-  end
-
-  def show
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def set_meal_type
@@ -28,7 +19,7 @@ class IngredientsController < ApplicationController
   end
 
   def set_category
-    session[:meal_type] = params[:meal_type] if params[:meal_type]
+    session[:meal_type] = params[:meal_types][:meal_type]if params[:meal_types][:meal_type]
   end
 
   private

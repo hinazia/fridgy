@@ -1,12 +1,58 @@
-This is the ingredients index
-<% @ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
-<%end %>
+<!-- user section -->
+
+<div class="user-info">
+  <img src='https://avatars.githubusercontent.com/u/138714969?v=4' class="avatar-large" />
+  <div class="user-info-text">
+    <h1>Hi Manuela</h1>
+    <p>Welcome to your Fridgy</p>
+  </div>
+</div>
+
+<!-- This is the add new ingredient section -->
+
+  <%= simple_form_for(@ingredient) do |f| %>
+
+    <div class="align-box">
+      <h3>Add new ingredients:</h3>
+        <div class="container-input">
+            <div class="w-100">
+              <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
+            </div>
+        </div>
+    </div>
+    <div class="align-box">
+      <h3>select measurement:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+        </div>
+      </div>
+    </div>
+    <div class="align-box">
+        <h3>Type the amount (number):</h3>
+        <div class="container-input">
+          <div class="w-100">
+            <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
+          </div>
+        </div>
+    </div>
+
+<!--button-->
+    <div class="align-box">
+        <%= f.submit "Add your Ingredient", class:"submit-button"%>
+  <% end %>
+
+<!-- select ingredients section -->
 
 <%= form_with url: "/set_meal_type", method: :get do |f| %>
-<% @ingredients.each do |ingredient| %>
-  <%= check_box_tag 'ingredients_ids[]', ingredient.id %>
-  <%= ingredient.name %>
-  <% end %>
-  <%= f.submit "Choose the Meal_type" %>
+  <div class="ingredient-checkbox">
+      <% @ingredients.each do |ingredient| %>
+        <div>
+          <%= check_box_tag 'ingredients_ids[]', ingredient.id %>
+          <%= ingredient.name %>
+        </div>
+      <% end %>
+  </div>
+  <%= f.submit "Let's Cook", class:"submit-button" %>
 <% end %>
+</div>
