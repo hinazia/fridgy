@@ -1,11 +1,16 @@
-<h2>Hello Session</h2>
-<%= session[:ingredients_ids] %>
-<%= session[:meal_type] %>
+<div class="container">
+
+<h3>What do you want to eat?</h3>
+
+<h4>Please choose your cuisine</h4>
 
 <%= form_with url:recipes_path, method: :post do |f|%>
   <% Ingredient::CATEGORIES.each do |category| %>
+  <div class="wrapper">
     <%= radio_button_tag 'category', category %>
     <%= f.label category %>
+  </div>
   <% end %>
   <%= f.submit %>
 <% end %>
+</div>
