@@ -28,4 +28,14 @@ class RecipesController < ApplicationController
 
     redirect_to recipes_path
   end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :content, :meal_type, :category)
+  end
 end

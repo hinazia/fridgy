@@ -7,14 +7,14 @@
 }
 
 .recipe-wrapper {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(202, 197, 197, 0.3)), url('food_placeholder.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(202, 197, 197, 0.3)), url('food_placeholder.jpeg');
   background-size: 100%;
   width: 350px;
   height: 150px;
   display: flex;
   border-radius: 30px;
   overflow: hidden;
- }
+}
 
 
 .recipe-wrapper:hover {
