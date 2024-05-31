@@ -19,7 +19,7 @@ class IngredientsController < ApplicationController
   end
 
   def set_category
-    session[:meal_type] = params[:meal_type] if params[:meal_type]
+    session[:meal_type] = params[:meal_types][:meal_type]if params[:meal_types][:meal_type]
   end
 
   private

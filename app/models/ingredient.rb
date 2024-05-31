@@ -7,4 +7,5 @@ class Ingredient < ApplicationRecord
   MEASUREMENTS = ['ml', 'g', 'kg', 'l', 'mg', 'tsp', 'tbsp', 'cup', 'pint', 'quart', 'gallon', 'oz', 'lb']
   MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner']
   CATEGORIES = ['Asian', 'Balkan', 'Japanise', 'Pakistani', 'Brazilian']
+
 end
