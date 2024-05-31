@@ -4,8 +4,8 @@ class Ingredient < ApplicationRecord
   has_many :recipe, through: :ingredient_recipe
   validates :name, :amount, :measurement, presence: true
 
-  MEASUREMENTS = ['ml', 'g', 'kg', 'l', 'mg', 'tsp', 'tbsp', 'cup', 'pint', 'quart', 'gallon', 'oz', 'lb']
+  MEASUREMENTS = ['ml', 'l', 'g', 'kg', 'tsp', 'tbsp', 'piece']
   MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner']
-  CATEGORIES = ['Asian', 'Balkan', 'Japanise', 'Pakistani', 'Brazilian']
+  CATEGORIES = ['Balkan', 'Brazilian', 'French', 'Indian', 'Italian', 'Japanese', 'Korean', 'Mexican', 'Pakistani', 'Spanish', 'Thai', 'Vietnamese' ]
 
 end
