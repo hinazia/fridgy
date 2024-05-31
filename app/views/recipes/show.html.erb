@@ -17,9 +17,8 @@
 </div>
 
 <div class="recipe-body">
-  <% @recipe.content.each_line.with_index(1) do |line, index| %>
-    <% line_without_number = line.sub(/^\d+\.\s*/, '') %>
-    <%= "#{index}: #{line_without_number.strip}" %>
+  <% @recipe.content.split(/\s?\d\.\s/).reject{|c|c.empty?}.each_with_index do |line, index| %>
+    <%= "#{index + 1}. #{line.strip}\n" %>
     <br>
     <br>
   <% end %>
