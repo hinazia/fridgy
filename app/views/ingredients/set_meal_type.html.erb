@@ -1,5 +1,4 @@
-<h2>What do you want to eat?</h2>
-<h4>Please choose your meal type.</h4>
+<h2 class="headline">What do you want to eat?</h2>
 <%= session[:ingredients_ids] %>
 <%# <%= simple_form_for :meal_types, url:"/set_category", method: :get do |f|%>
     <%# <%= f.input :meal_type,
@@ -25,7 +24,7 @@
       </div>
     <% end %>
   </div>
-  <%= f.submit "Choose the Category", class: "submit-button" %>
+  <%= f.submit "Choose the Category", class: "submit-button-thu" %>
 <% end %>
 
 
