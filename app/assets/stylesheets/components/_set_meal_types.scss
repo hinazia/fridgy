@@ -58,6 +58,11 @@ h4 {
   gap:30px;
 }
 
+.category-item p {
+  // align-items: center;
+  margin-top: 20px;
+}
+
 .category-selector {
   position: absolute;
   transform: scale(0);
@@ -118,6 +123,10 @@ div.category-item {
   border-color: black;
 }
 
+.category-wrapper{
+
+}
+
 // #meal_types_meal_type_breakfast + label {
 //   color: #FD1015;
 //   background-color: #CBCBCB;
@@ -130,10 +139,10 @@ div.category-item:checked {
   border-color: black;
 }
 
-// #meal_types_meal_type_breakfast:checked + label {
-//   background-color: #FE6D0E;
-//   border-color: black;
-// }
+#meal_types_meal_type_breakfast:checked + label {
+  background-color: #FE6D0E;
+  border-color: black;
+}
 
 
 // #meal_types_meal_type_lunch + label {

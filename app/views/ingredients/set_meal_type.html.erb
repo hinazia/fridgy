@@ -19,7 +19,7 @@
       <div class="category-item">
             <%= image_tag "#{meal_type.downcase}-black.png", class: "meal-type-icon"  %>
           <label class="category-label">
-            <%= f.radio_button :meal_type, meal_type, class: 'category-selector' %>
+            <p><%= f.radio_button :meal_type, meal_type, class: 'category-selector' %></p>
             <%= meal_type %>
           </label>
       </div>
