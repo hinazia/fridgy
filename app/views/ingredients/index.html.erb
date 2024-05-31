@@ -13,7 +13,7 @@
   <%= simple_form_for(@ingredient) do |f| %>
 
     <div class="align-box">
-      <h3>Add new ingredients:</h3>
+      <h3>Ingredient:</h3>
         <div class="container-input">
             <div class="w-100">
               <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="align-box">
-        <h3>Type the amount (number):</h3>
+        <h3>Amount (number):</h3>
         <div class="container-input">
           <div class="w-100">
             <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
@@ -39,12 +39,13 @@
 
 <!--button-->
     <div class="align-box">
-        <%= f.submit "Add your Ingredient", class:"submit-button"%>
+        <%= f.submit "Add to your Fridgy", class:"submit-button"%>
   <% end %>
 
 <!-- select ingredients section -->
 
 <%= form_with url: "/set_meal_type", method: :get do |f| %>
+  <h2>Choose your ingredients</h2>
   <div class="ingredient-checkbox">
       <% @ingredients.each do |ingredient| %>
         <div>
@@ -53,6 +54,6 @@
         </div>
       <% end %>
   </div>
-  <%= f.submit "Let's Cook", class:"submit-button" %>
+  <%= f.submit "Let's Cook", class:"submit-button-btn" %>
 <% end %>
 </div>
