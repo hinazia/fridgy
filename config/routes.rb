@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   end
   get "/set_meal_type", to: "ingredients#set_meal_type"
   get "/set_category", to: "ingredients#set_category"
-  resources :recipes, only: [:index, :show, :create]
-
+  resources :recipes, only: [:index, :show, :create, :edit, :update] do
+    member do
+      get :favourite
+    end
+  end
+  get "/list_favourites", to: "recipes#list_favourites"
 end
