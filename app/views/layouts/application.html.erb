@@ -18,8 +18,9 @@
   </head>
 
   <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+    <%= render "shared/flashes" %>
 
     <%= yield %>
+    <div class="buffer" style="height: 70px;"></div>
   </body>
 </html>
