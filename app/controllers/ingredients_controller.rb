@@ -22,6 +22,16 @@ class IngredientsController < ApplicationController
     session[:meal_type] = params[:meal_types] if params[:meal_types]
   end
 
+  def destroy
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+    redirect_to fridgy_ingredients_path
+  end
+
+  def fridgy
+    @ingredients = current_user.ingredients
+  end
+
   private
 
   def ingredient_params

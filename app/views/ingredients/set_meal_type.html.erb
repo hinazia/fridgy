@@ -1,31 +1,40 @@
 
-<h2 class="headline">What do you want to eat?</h2>
-<%# <%= simple_form_for :meal_types, url:"/set_category", method: :get do |f|%>
-    <%# <%= f.input :meal_type,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'},
-            collection: ['Breakfast', 'Lunch', 'Dinner'], legend_tag: false %>
-    <%# <%= f.submit "Choose the Category", class:"submit-button" %>
+  <h2 class="headline">Select your meal type</h2>
 
-<%# <% end %>
-
-<%= simple_form_for :meal_types, url: "/set_category", method: :get do |f| %>
-  <div class="category-wrapper">
-    <% ['Breakfast', 'Lunch', 'Dinner'].each do |meal_type| %>
-      <div class="category-item">
-            <%= image_tag "#{meal_type.downcase}-black.png", class: "meal-type-icon"  %>
+  <%= simple_form_for :meal_types, url: "/set_category", method: :get do |f| %>
+    <div class="category-wrapper">
+      <% ['Breakfast', 'Lunch', 'Dinner'].each do |meal_type| %>
+        <div class="category-item">
+          <%= image_tag "#{meal_type.downcase}-black.png", class: "meal-type-icon" %>
           <label class="category-label">
-            <p><%= f.radio_button :meal_type, meal_type, class: 'category-selector' %></p>
+            <%= f.radio_button :meal_type, meal_type, class: 'category-selector', id: meal_type.downcase %>
             <%= meal_type %>
           </label>
-      </div>
-    <% end %>
-  </div>
-  <%= f.submit "Choose the Category", class: "submit-button-thu" %>
-<% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit "Choose the Category", class: "submit-button-thu" %>
+  <% end %>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const categoryItems = document.querySelectorAll('.category-item');
+      const radioButtons = document.querySelectorAll('.category-selector');
 
+      categoryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          categoryItems.forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+          item.querySelector('.category-selector').checked = true;
+        });
+      });
+
+      radioButtons.forEach(radio => {
+        radio.addEventListener('change', (event) => {
+          categoryItems.forEach(item => item.classList.remove('selected'));
+          event.target.closest('.category-item').classList.add('selected');
+        });
+      });
+    });
+  </script>
 
