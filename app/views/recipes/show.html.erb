@@ -1,7 +1,7 @@
 
 <div class="recipe-header">
 
-  <%= image_tag "food_placeholder.jpeg", class: "recipe-image"%>
+  <%= cl_image_tag @recipe.photo.key, class: "recipe-image"%>
   <br>
   <%= @recipe.title %>
   <br>
@@ -28,4 +28,3 @@
     <br>
   <% end %>
 </div>
-
