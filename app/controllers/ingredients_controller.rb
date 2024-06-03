@@ -28,6 +28,16 @@ class IngredientsController < ApplicationController
     redirect_to fridgy_ingredients_path
   end
 
+  def edit
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+  def update
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.update(ingredient_params)
+    redirect_to fridgy_ingredients_path, notice: 'Ingredient was successfully updated.'
+  end
+
   def fridgy
     @ingredients = current_user.ingredients
   end

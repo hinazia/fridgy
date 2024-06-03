@@ -1,14 +1,39 @@
 <tbody>
   <% @ingredients.each do |ingredient| %>
     <tr>
-      <td><%= link_to ingredient.name, ingredient_path(ingredient) %></td>
+      <td><%= link_to ingredient.name, ingredient_path(ingredient) %>
+      </td>
       <td><%= ingredient.amount %></td>
+      <td><%= ingredient.measurement %></td>
       <td>
         <%= link_to "Delete",
           ingredient_path(ingredient),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete #{ingredient.name}?"}
         %>
       </td>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target='<%= "#ingredient-#{ingredient.id}"%>'>
+        Edit
+      </button>
+      <div class="modal fade" id="ingredient-<%= ingredient.id%>"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit <%= ingredient.name %></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for ingredient do |f| %>
+                <%= f.input :name %>
+                <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
+                <%= f.input :amount, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' } %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </tr>
   <% end %>
 </tbody>
