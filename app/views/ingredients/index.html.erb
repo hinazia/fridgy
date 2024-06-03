@@ -1,19 +1,21 @@
 <!-- user section -->
-
-<div class="user-info">
-  <img src='https://avatars.githubusercontent.com/u/138714969?v=4' class="avatar-large" />
-  <div class="user-info-text">
-    <h1>Hi Manuela</h1>
-    <p>Welcome to your Fridgy</p>
+<div style="display: flex; justify-content: space-around">
+  <div class="user-info">
+    <img src='https://avatars.githubusercontent.com/u/138714969?v=4' class="avatar-large" />
+    <div class="user-info-text">
+      <h1>Hi <%= current_user.name%>,</h1>
+      <p>Welcome to your Fridgy!</p>
+    </div>
   </div>
+  <button class="btn" style="" ><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></button>
 </div>
 
 <!-- This is the add new ingredient section -->
-
+<div class="center">
   <%= simple_form_for(@ingredient) do |f| %>
 
     <div class="align-box">
-      <h3>Ingredient:</h3>
+      <h3>New ingredient:</h3>
         <div class="container-input">
             <div class="w-100">
               <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
@@ -21,7 +23,7 @@
         </div>
     </div>
     <div class="align-box">
-      <h3>select measurement:</h3>
+      <h3>Select measurement:</h3>
       <div class="container-input">
         <div class="w-100">
           <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
@@ -29,7 +31,7 @@
       </div>
     </div>
     <div class="align-box">
-        <h3>Amount (number):</h3>
+        <h3>Amount:</h3>
         <div class="container-input">
           <div class="w-100">
             <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
@@ -39,7 +41,7 @@
 
 <!--button-->
     <div class="align-box">
-        <%= f.submit "Add to your Fridgy", class:"submit-button"%>
+        <%= f.submit "Add to your Fridgy", class:"submit-button", style:"width: 300px"%>
   <% end %>
 
 <!-- select ingredients section -->
@@ -54,6 +56,7 @@
         </div>
       <% end %>
   </div>
-  <%= f.submit "Let's Cook", class:"submit-button-btn" %>
+  <%= f.submit "Let's Cook!", class:"submit-button-btn", style:"width: 300px"%>
 <% end %>
+</div>
 </div>

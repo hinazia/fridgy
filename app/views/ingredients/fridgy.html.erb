@@ -1,0 +1,14 @@
+<tbody>
+  <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= link_to ingredient.name, ingredient_path(ingredient) %></td>
+      <td><%= ingredient.amount %></td>
+      <td>
+        <%= link_to "Delete",
+          ingredient_path(ingredient),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
