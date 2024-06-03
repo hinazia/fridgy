@@ -15,7 +15,7 @@
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .category-item {
@@ -28,9 +28,10 @@
   padding: 20px;
   gap: 30px;
   background-color: #CBCBCB;
+  align-items: center;
 }
 
-input[type="radio"]:checked + .category-item {
+.category-item.selected {
   background-color: #FE6D0E;
   color: white;
 }
@@ -43,4 +44,14 @@ input[type="radio"]:checked + .category-item {
   height: 80px;
   width: 80px;
   margin-bottom: 10px;
+}
+
+.category-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.category-selector {
+  display: none;
 }
