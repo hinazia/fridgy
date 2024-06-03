@@ -1,16 +1,6 @@
 
-<h2 class="headline">What do you want to eat?</h2>
-<%# <%= simple_form_for :meal_types, url:"/set_category", method: :get do |f|%>
-    <%# <%= f.input :meal_type,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'},
-            collection: ['Breakfast', 'Lunch', 'Dinner'], legend_tag: false %>
-    <%# <%= f.submit "Choose the Category", class:"submit-button" %>
+<h2 class="headline">Select your Meal Type</h2>
 
-<%# <% end %>
 
 <%= simple_form_for :meal_types, url: "/set_category", method: :get do |f| %>
   <div class="category-wrapper">
@@ -26,6 +16,3 @@
   </div>
   <%= f.submit "Choose the Category", class: "submit-button-thu" %>
 <% end %>
-
-
-
