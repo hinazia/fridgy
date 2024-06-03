@@ -1,34 +1,12 @@
 .category-wrapper {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
   width: 300px;
-  margin: auto auto;
-  gap: 50px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-h2 {
-  font-size: 30px;
-  font-weight: 600;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h4 {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 20px;
+  margin: auto;
 }
 
 .submit-button-thu {
   display: block;
-  width: 77%;
+  width: 300px;
   margin: 20px auto;
   margin-top: 30px;
   padding: 10px;
@@ -37,135 +15,43 @@ h4 {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .category-item {
   flex: 0 0 30%;
   display: flex;
-  cursor: pointer;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 25px;
-  text-align: left;
-  padding: 10px 10px 30px 10px;
   border-radius: 10px;
-  background-color: white;
-  text-align: center;
   height: 110px;
-  padding-top: 40px;
-  justify-content: space-between;
-  font-size: 30px;
+  margin-bottom: 15px;
+  font-size: 25px;
   padding: 20px;
-  gap:30px;
+  gap: 30px;
+  background-color: #CBCBCB;
+  align-items: center;
+}
+
+.category-item.selected {
+  background-color: #FE6D0E;
+  color: white;
 }
 
 .category-item p {
-  // align-items: center;
   margin-top: 20px;
 }
 
-.category-selector {
-  position: absolute;
-  transform: scale(0);
-}
-
-// .category-selector {
-//   display: block;
-//   cursor: pointer;
-//   box-sizing: border-box;
-//   width: 100%;
-//   font-size: 12px;
-//   text-align: left;
-//   padding: 10px 10px 30px 10px;
-//   border: 1px solid #EAEAEA;
-//   border-radius: 4px;
-//   background-color: white;
-//   text-align: center;
-//   height: 110px;
-//   padding-top: 40px;
-//   justify-content: space-between;
-// }
-
-// label {
-//   display: block;
-//   cursor: pointer;
-//   box-sizing: border-box;
-//   width: 100%;
-//   font-size: 12px;
-//   text-align: left;
-//   padding: 10px 10px 30px 10px;
-//   border: 1px solid #EAEAEA;
-//   border-radius: 4px;
-//   background-color: white;
-//   text-align: center;
-//   height: 110px;
-//   padding-top: 40px;
-// }
-
 .meal-type-icon {
   height: 80px;
-  width:80px;
+  width: 80px;
   margin-bottom: 10px;
 }
 
-
-
-// .category-selector +label:hover {
-//   scale:105%;
-// }
-
-// .category-selector:checked + label {
-//   color: white !important;
-// }
-
-div.category-item {
-  color: black;
-  background-color: #CBCBCB;
-  border-color: black;
+.category-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
-.category-wrapper{
-
+.category-selector {
+  display: none;
 }
-
-// #meal_types_meal_type_breakfast + label {
-//   color: #FD1015;
-//   background-color: #CBCBCB;
-//   border-color: black;
-// }
-
-div.category-item:checked {
-  color: black;
-  background-color: #FE6D0E;
-  border-color: black;
-}
-
-#meal_types_meal_type_breakfast:checked + label {
-  background-color: #FE6D0E;
-  border-color: black;
-}
-
-
-// #meal_types_meal_type_lunch + label {
-//   color: #FFC65A;
-//   background-color: #CBCBCB;
-//   border-color: black;
-// }
-
-// #meal_types_meal_type_lunch:checked + label {
-//   background-color: #FE6D0E;
-//   border-color: black;
-// }
-
-
-// #meal_types_meal_type_dinner + label {
-//   color: #62DDF5;
-//   background-color: #CBCBCB;
-//   border-color: black;
-// }
-
-// #meal_types_meal_type_dinner:checked + label {
-//   background-color: #FE6D0E;
-//   border-color: black;
-// }
