@@ -46,6 +46,9 @@ class RecipesController < ApplicationController
 
   def list_favourites
     @recipes = current_user.recipes.where(favourite: true)
+    if params[:query].present?
+      @recipes = @recipes.where("title ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def delete
