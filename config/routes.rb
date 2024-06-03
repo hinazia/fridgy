@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :ingredients, only: [:index, :show, :new, :create, :destroy] do
+  resources :ingredients do
     collection do
       get :fridgy
     end
