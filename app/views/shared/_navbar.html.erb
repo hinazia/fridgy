@@ -1,14 +1,13 @@
 <div class="navbar">
-  <a href="#home" class="active">
-    <i class="fi fi-rr-home"></i>
-  </a>
-  <a href="#ingredients">
-    <i class="fi fi-rr-refrigerator"></i>
-  </a>
-  <a href="#favorites">
-    <i class="fi fi-rr-star"></i>
-  </a>
-  <a href="#account">
-    <i class="fi fi-rr-user"></i>
-  </a>
+  <%= link_to root_path, class: "active" do %>
+    <i class="fi-rr-home"></i>
+  <% end %>
+
+  <%= link_to "#ingredients" do %>
+    <i class="fi-rr-refrigerator"></i>
+  <% end %>
+
+  <%= link_to "#favorites" do %>
+    <i class="fi-rr-star"></i>
+  <% end %>
 </div>
