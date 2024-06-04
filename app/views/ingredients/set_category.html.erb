@@ -1,3 +1,4 @@
+<div class="container">
 <h1 class="headline">Choose your cuisine</h1>
 
 <%= form_with url: recipes_path, method: :post do |f| %>
@@ -8,8 +9,7 @@
         <%= label_tag category, category, class: 'button-label' %>
       </div>
     <% end %>
+    <%= f.submit 'Generate Recipe', class: 'submit-button-label' %>
   </div>
-  <div class="align-box">
-  <%= f.submit 'Generate Recipe', class: 'submit-button-label' %>
 <% end %>
 </div>

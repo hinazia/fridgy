@@ -1,3 +1,7 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .headline {
   font-size: 25px;
   font-weight: 500;
@@ -6,14 +10,14 @@
   margin-top: 50px;
   margin-bottom: 30px;
   text-align: center;
-
 }
 
 .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
+  max-width: 800px;
   margin-bottom: 20px;
 }
 
@@ -46,7 +50,7 @@ input[type="radio"]:checked + .button-label {
 
 .submit-button-label {
   display: block;
-  width: 100%;
+  width: 80%;
   margin: 20px auto;
   margin-top: 30px;
   margin-bottom: 90px;
