@@ -8,55 +8,44 @@ body {
   align-items: center;
 }
 
-// user section
-h1 {
-  font-size: 20px;
-  font-weight: 500;
-  font-family: poppins;
-  color: rgb(4, 4, 4);
-  margin-bottom: 2px;
-  margin-top: 0px;
-}
-
-h2 {
-  font-size: 20px;
-  font-weight: 500;
-  font-family: poppins;
-  color: rgb(4, 4, 4);
-  margin-bottom: 15px;
-  margin-top: 0px;
-}
-
-p {
-  font-size: 15px;
-  margin-top: 0px;
-}
-
-.user-info {
+//delete icon
+.user-style-section {
   display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  margin-top:30px;
-  margin-left: 20px;
-  padding: 8px 16px;
+  justify-content:space-around;
+  align-items: start;
+  margin-top: 30px;
+  margin-bottom: 50px;
 
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    .avatar-large {
+      margin-right: 10px;
+    }
+
+    .user-info-text {
+      h1 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+.delete-icon {
+  text-decoration: none;
 }
+  .trash-bin {
+    display: flex;
+    align-items: center;
 
-.avatar-large {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  margin-right: 15px;
-  display: flex;
-  justify-content: center;
-}
 
-.user-info-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  p{
-    margin: 0;
+    .delete-icon {
+      font-size: 20px;
+      color: #FE6D0E;
+    }
   }
 }
 //button for ingredient and cook
