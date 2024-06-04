@@ -1,7 +1,38 @@
-.form-inputs {
-  margin-top: 10px;
-  $size: 2rem;
-  padding-left: $size;
-  padding-right: $size;
-  max-width: 800px;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-actions-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #FE6D0E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.align-box {
+  text-align: left;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
