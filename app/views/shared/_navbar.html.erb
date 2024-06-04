@@ -1,13 +1,13 @@
 <div class="navbar">
-  <%= link_to root_path, class: "active" do %>
+  <%= link_to root_path, class: "#{params[:action] == 'index' ? 'active' : ''}" do %>
     <i class="fi-rr-home"></i>
   <% end %>
 
-  <%= link_to "/ingredients/fridgy" do %>
+  <%= link_to "/ingredients/fridgy", class: "#{params[:action] == 'fridgy' ? 'active' : ''}" do %>
     <i class="fi-rr-refrigerator"></i>
   <% end %>
 
-  <%= link_to list_favourites_path do %>
+  <%= link_to list_favourites_path, class: "#{params[:action] == 'list_favourites' ? 'active' : ''}"  do %>
     <i class="fi-rr-star"></i>
   <% end %>
 </div>
