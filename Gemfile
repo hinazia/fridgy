@@ -80,3 +80,5 @@ end
 gem "pg_search"
 gem "ruby-openai"
 gem "cloudinary"
+gem "sidekiq", "~> 7"
+gem "sidekiq-failures"
