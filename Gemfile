@@ -77,5 +77,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "pg_search"
 gem "ruby-openai"
 gem "cloudinary"

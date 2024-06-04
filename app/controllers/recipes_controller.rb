@@ -33,6 +33,29 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def favourite
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(favourite: !@recipe.favourite)
+    @recipe.save
+    redirect_to @recipe
+  end
+
+  def list_favourites
+    @recipes = current_user.recipes.where(favourite: true)
+    if params[:query].present?
+      @recipes = @recipes.where("title ILIKE ?", "%#{params[:query]}%")
+    end
+  end
+
+  def delete
+    @recipe = Recipe.destroy(params[:id])
+    redirect_to @recipes
+  end
+
   private
 
   def recipe_params
