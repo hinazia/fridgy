@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+gem "sidekiq", "~> 7"
+gem "sidekiq-failures"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.3"
 
@@ -77,5 +80,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "pg_search"
 gem "ruby-openai"
 gem "cloudinary"
+

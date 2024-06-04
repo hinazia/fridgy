@@ -19,7 +19,27 @@ class IngredientsController < ApplicationController
   end
 
   def set_category
-    session[:meal_type] = params[:meal_types][:meal_type]if params[:meal_types][:meal_type]
+    session[:meal_type] = params[:meal_types] if params[:meal_types]
+  end
+
+  def destroy
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+    redirect_to fridgy_ingredients_path
+  end
+
+  def edit
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+  def update
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.update(ingredient_params)
+    redirect_to fridgy_ingredients_path, notice: 'Ingredient was successfully updated.'
+  end
+
+  def fridgy
+    @ingredients = current_user.ingredients
   end
 
   private

@@ -1,11 +1,16 @@
 
 <div class="recipe-header">
 
-  <%= image_tag "food_placeholder.jpeg", class: "recipe-image"%>
+  <%= cl_image_tag @recipe.photo.key, class: "recipe-image"%>
   <br>
   <%= @recipe.title %>
   <br>
   <br>
+  <% if @recipe.favourite? %>
+     <%= link_to "removetFromavourite", favourite_recipe_path(@recipe) %>
+  <% else %>
+    <%= link_to "Addtofavourite", favourite_recipe_path(@recipe) %>
+  <% end %>
 </div>
 <div class="recipe-ingredients">
   <h3>Ingredients:</h3>
@@ -23,4 +28,3 @@
     <br>
   <% end %>
 </div>
-
