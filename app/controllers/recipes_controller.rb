@@ -6,26 +6,13 @@ class RecipesController < ApplicationController
   def create
     session[:category] = params[:category] if params[:category]
     # Find ingredients based on [session ingredient_ids]
-    ingredients = Ingredient.where(id: session[:ingredients_ids])
-    service = ChatService.new(ingredients, session[:meal_type], session[:category])
-    3.times do
-      recipe = Recipe.new
-      # call the service to get title and content
-      title_and_content = service.get_title_and_content
-      recipe.title = title_and_content["title"]
-      recipe.content = title_and_content["content"]
-      # we are going to create the recipe with the meal_type, category, title and content and user
-      recipe.meal_type = session[:meal_type]
-      recipe.category = session[:category]
-      recipe.user = current_user
+    ingredient_ids = session[:ingredient_ids]
+    meal_type = session[:meal_type]
+    category = session[:category]
+    #=> #<GlobalID:0x000055988bc4dd20 [...] gid://background-jobs-demo/User/1>>
+    serialized_user = current_user.to_global_id.to_s
+    AiRecipeGeneratorJob.perform_later(ingredient_ids, meal_type, category, serialized_user)
       # we need to create one ingredient recipe for each ingredient
-      if recipe.save
-        ingredients.each do |ingredient|
-          IngredientRecipe.create(recipe: recipe, ingredient: ingredient )
-        end
-      end
-    end
-
     redirect_to recipes_path
   end
 
