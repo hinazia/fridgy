@@ -1,34 +1,38 @@
-<tbody>
-  <div class="whole-body">
-    <% @ingredients.each do |ingredient| %>
-      <tr>
-        <div class="card">
-          <div class="ingredients">
-            <div class="name">
-              <td><%= ingredient.name %></td>
-            </div>
-            <div class="amount">
-              <td><%= ingredient.amount %></td>
-            </div>
-            <div class="measurement">
-              <td><%= ingredient.measurement %></td>
-            </div>
-          </div>
-          <div class="icons">
-            <div class="trash">
-                <td><%= link_to ingredient_path(ingredient), data: {turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete #{ingredient.name}?" }, class: "delete" do %>
-                    <i class="fa-regular fa-trash-can"></i>
-                  <% end %>
-                </td>
-            </div>
-            <div class="pen">
-                <p data-bs-toggle="modal" data-bs-target='<%= "#ingredient-#{ingredient.id}"%>'>
-                  <i class="fa-regular fa-pen-to-square"></i>
-                </p>
-            </div>
-          </div>
-        </div>
-         <div class="modal fade" id="ingredient-<%= ingredient.id%>"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="header">
+  <h2>Welcome to your Fridgy!</h2>
+  <h3>Here you can update your available ingredients.</h3>
+</div>
+<div class="container justify-content-center col-12 col-lg-6">
+  <div style="max-height: 200px; overflow-y: auto;">
+    <table style="width: 100%; margin-bottom: 20px;">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Unit</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ingredients.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient.name %></td>
+            <td><%= ingredient.amount %></td>
+            <td><%= ingredient.measurement %></td>
+            <td>
+              <p data-bs-toggle="modal" data-bs-target="<%= "#ingredient-#{ingredient.id}" %>">
+                <i id="edit-ingredient" class="fa-regular fa-pen-to-square"></i>
+              </p>
+            </td>
+            <td>
+              <%= link_to ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure you would like to delete #{ingredient.name}?" }, class: "delete" do %>
+                <i id="delete-ingredient" class="fa-regular fa-trash-can"></i>
+              <% end %>
+            </td>
+          </tr>
+          <%# Modal for editing ingredient %>
+          <div class="modal fade" id="ingredient-<%= ingredient.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -38,14 +42,48 @@
                   <%= simple_form_for ingredient do |f| %>
                     <%= f.input :name %>
                     <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
-                    <%= f.input :amount, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' } %>
+                    <%= f.input :amount, as: :numeric, input_html: { min: '0', step: 'any', class: 'custom-placeholder' } %>
                     <%= f.submit %>
                   <% end %>
                 </div>
               </div>
             </div>
           </div>
-      </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="margin-top: 30px;">
+  <%= simple_form_for(@ingredient) do |f| %>
+    <%= hidden_field_tag :fridgy, true%>
+    <div class="align-box">
+      <h3>New ingredient:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
+        </div>
+      </div>
+    </div>
+    <div class="align-box">
+      <h3>Select measurement:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+        </div>
+      </div>
+    </div>
+    <div class="align-box">
+      <h3>Amount:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
+        </div>
+      </div>
+    </div>
+    <!--button-->
+    <div class="align-box">
+      <%= f.submit "Add to your Fridgy", class:"submit-button", style:"width: 300px"%>
     <% end %>
   </div>
-</tbody>
+</div>
