@@ -1,26 +1,32 @@
-
 <div class="recipe-header">
-
-  <%= cl_image_tag @recipe.photo.key, class: "recipe-image"%>
-  <br>
-  <%= @recipe.title %>
-  <br>
-  <br>
-  <% if @recipe.favourite? %>
-     <%= link_to "removetFromavourite", favourite_recipe_path(@recipe) %>
+  <% if @recipe.photo.attached? %>
+    <%= cl_image_tag @recipe.photo.key, class: "recipe-image"%>
   <% else %>
-    <%= link_to "Addtofavourite", favourite_recipe_path(@recipe) %>
+    <%= image_tag "food_placeholder.jpg", class: "recipe-image" %>
   <% end %>
+  <br>
+  <div class="favorite-icons">
+    <% if @recipe.favourite? %>
+    <%= link_to favourite_recipe_path(@recipe), style: "text-decoration: none;" do %>
+      <i id="favorite-icon" class="fi fi-sr-star"></i>
+    <% end %>
+  <% else %>
+    <%= link_to favourite_recipe_path(@recipe), style: "text-decoration: none;" do %>
+      <i id="unfavorite-icon" class="fi-rr-star"></i>
+    <% end %>
+  <% end %>
+  </div>
+  <h2><%= @recipe.title %></h2>
+  <h3>Did you like this recipe? Click on the star above!</h4>
 </div>
 <div class="recipe-ingredients">
-  <h3>Ingredients:</h3>
+  <h3>The ingredients selected for the recipe:</h3>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
       <li><%= "#{ingredient.name}" %> - <%= "#{ingredient.amount} #{ingredient.measurement}" %></li>
     <% end %>
   </ul>
 </div>
-
 <div class="recipe-body">
   <% @recipe.content.split(/\s?\d\.\s/).reject{|c|c.empty?}.each_with_index do |line, index| %>
     <%= "#{index + 1}. #{line.strip}\n" %>

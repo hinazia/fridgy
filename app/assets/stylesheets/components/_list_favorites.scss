@@ -1,0 +1,43 @@
+.card {
+  width: 300px;
+  max-width: 300px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.btn-search {
+  width:100px;
+  border-radius: 5px;
+  background-color: #FE6D0E;
+  border: 1px solid #FE6D0E;
+}
+
+.input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #FE6D0E;
+}

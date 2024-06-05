@@ -1,4 +1,5 @@
 class AiRecipeGeneratorJob < ApplicationJob
+  include Sidekiq::Status::Worker
   queue_as :default
 
   def perform(ingredient_ids, meal_type, category, serialized_user)
@@ -22,5 +23,9 @@ class AiRecipeGeneratorJob < ApplicationJob
         end
       end
     end
+  end
+  
+  def expiration
+    @expiration ||= 60 * 60 * 24 * 30 # 30 days
   end
 end

@@ -85,3 +85,5 @@ gem "ruby-openai"
 gem "cloudinary"
 gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
+gem 'sidekiq-status', '~> 3.0', '>= 3.0.3'
+
