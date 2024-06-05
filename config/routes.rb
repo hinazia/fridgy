@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     end
   end
   get "/list_favourites", to: "recipes#list_favourites"
+  get "/loading_page", to: "recipes#loading"
+  get "/status/:job_id", to: "recipes#job_status"
 end
