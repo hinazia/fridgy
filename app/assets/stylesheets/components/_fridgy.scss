@@ -16,11 +16,13 @@
     border-collapse: collapse;
   }
 
-  th, td {
-    padding: 3px;
+  th,
+  td {
+    padding: 5px;
     text-align: center;
     border-bottom: 1px solid #ddd;
     vertical-align: middle;
+
     p {
       display: inline;
     }
@@ -33,7 +35,8 @@
     color: #ffffff;
   }
 
-  #edit-ingredient, #delete-ingredient {
+  #edit-ingredient,
+  #delete-ingredient {
     cursor: pointer;
     color: #FE6D0E;
   }

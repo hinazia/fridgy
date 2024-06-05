@@ -3,7 +3,7 @@
   <h3>Here you can update your available ingredients.</h3>
 </div>
 <div class="container justify-content-center col-12 col-lg-6">
-  <div style="max-height: 300px; overflow-y: auto;">
+  <div style="max-height: 200px; overflow-y: auto;">
     <table style="width: 100%; margin-bottom: 20px;">
       <thead>
         <tr>
@@ -54,35 +54,36 @@
     </table>
   </div>
 </div>
-
-<%= simple_form_for(@ingredient) do |f| %>
-  <%= hidden_field_tag :fridgy, true%>
-  <div class="align-box">
-    <h3>New ingredient:</h3>
-    <div class="container-input">
-      <div class="w-100">
-        <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
+<div style="margin-top: 30px;">
+  <%= simple_form_for(@ingredient) do |f| %>
+    <%= hidden_field_tag :fridgy, true%>
+    <div class="align-box">
+      <h3>New ingredient:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input :name, placeholder: "e.g. Milk", label: false,  input_html: { class: 'custom-placeholder' } %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="align-box">
-    <h3>Select measurement:</h3>
-    <div class="container-input">
-      <div class="w-100">
-        <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+    <div class="align-box">
+      <h3>Select measurement:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="align-box">
-    <h3>Amount:</h3>
-    <div class="container-input">
-      <div class="w-100">
-        <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
+    <div class="align-box">
+      <h3>Amount:</h3>
+      <div class="container-input">
+        <div class="w-100">
+          <%= f.input  :amount, placeholder: "e.g. 1, 2, 3, etc.", label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
+        </div>
       </div>
     </div>
+    <!--button-->
+    <div class="align-box">
+      <%= f.submit "Add to your Fridgy", class:"submit-button", style:"width: 300px"%>
+    <% end %>
   </div>
-  <!--button-->
-  <div class="align-box">
-    <%= f.submit "Add to your Fridgy", class:"submit-button", style:"width: 300px"%>
-  <% end %>
 </div>
