@@ -1,17 +1,25 @@
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: list_favourites_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <div class="col-12 col-md-8 col-lg-6">
+      <%= form_with url: list_favourites_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "d-flex input", placeholder: "Type a keyword" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary btn-search" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <% @recipes.each do |recipe| %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
+        <%= link_to recipe_path(recipe), class: 'card-link' do %>
+          <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= recipe.photo.attached? ? cl_image_path(recipe.photo.key) : asset_path('food_placeholder.jpg') %>);">
+              <span><%= recipe.title %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-
-<% @recipes.each do |recipe|%>
-<%= link_to recipe.title, recipe_path(recipe) %>
-<% end %>

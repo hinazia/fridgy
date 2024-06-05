@@ -1,7 +1,10 @@
 
 <div class="recipe-header">
-
+  <% if @recipe.photo.attached? %>
   <%= cl_image_tag @recipe.photo.key, class: "recipe-image"%>
+  <% else %>
+  <%= image_tag "food_placeholder.jpg", class: "recipe-image" %>
+  <% end %>
   <br>
   <%= @recipe.title %>
   <br>
