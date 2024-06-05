@@ -11,9 +11,22 @@ class RecipesController < ApplicationController
     category = session[:category]
     #=> #<GlobalID:0x000055988bc4dd20 [...] gid://background-jobs-demo/User/1>>
     serialized_user = current_user.to_global_id.to_s
-    AiRecipeGeneratorJob.perform_later(ingredient_ids, meal_type, category, serialized_user)
+    job =  AiRecipeGeneratorJob.perform_later(ingredient_ids, meal_type, category, serialized_user)
+    @job_id = job.provider_job_id
+
       # we need to create one ingredient recipe for each ingredient
-    redirect_to recipes_path
+    redirect_to loading_page_path(job_id: @job_id)
+  end
+
+  def loading
+    @job_id =  params[:job_id] if params[:job_id].present?
+
+  end
+
+  def job_status
+    @job_id =  params[:job_id] if params[:job_id].present?
+    status = Sidekiq::Status::status(@job_id)
+    render json: {status: status }
   end
 
   def show
