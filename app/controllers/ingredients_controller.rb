@@ -10,7 +10,11 @@ class IngredientsController < ApplicationController
     @ingredient.user = current_user
 
     if @ingredient.save
-      redirect_to root_path
+      if params[:fridgy].present?
+        redirect_to fridgy_ingredients_path
+      else
+        redirect_to root_path
+      end
     end
   end
 
@@ -40,6 +44,7 @@ class IngredientsController < ApplicationController
 
   def fridgy
     @ingredients = current_user.ingredients
+    @ingredient = Ingredient.new
   end
 
   private
