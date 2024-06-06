@@ -31,28 +31,30 @@
               <% end %>
             </td>
           </tr>
-
+          <%# Modal for editing ingredient %>
+        <% end %>
       </tbody>
     </table>
-    <%# Modal for editing ingredient %>
-          <div class="modal fade" id="ingredient-<%= ingredient.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Edit <%= ingredient.name %></h5>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for ingredient do |f| %>
-                    <%= f.input :name %>
-                    <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
-                    <%= f.input :amount, as: :numeric, input_html: { min: '0', step: 'any', class: 'custom-placeholder' } %>
-                    <%= f.submit %>
-                  <% end %>
-                </div>
-              </div>
+
+    <% @ingredients.each do |ingredient| %>
+      <div class="modal fade" id="ingredient-<%= ingredient.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit <%= ingredient.name %></h5>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for ingredient do |f| %>
+                <%= f.input :name %>
+                <%= f.input :measurement, collection: Ingredient::MEASUREMENTS %>
+                <%= f.input :amount, as: :numeric, input_html: { min: '0', step: 'any', class: 'custom-placeholder' } %>
+                <%= f.submit %>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
+    </div>
+  <% end %>
   </div>
 </div>
 <div style="margin-top: 30px;">
