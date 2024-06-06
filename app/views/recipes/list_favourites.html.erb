@@ -1,9 +1,9 @@
-
+<h2 style="margin-top: 50px; font-size: 25px">Favorite Recipes</h2>
 <div class="container">
   <div class="row justify-content-center my-3">
     <div class="col-12 col-md-8 col-lg-6">
       <%= form_with url: list_favourites_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "d-flex input", placeholder: "Type a keyword" %>
+        <%= text_field_tag :query, params[:query], class: "d-flex input", placeholder: "Type a keyword of a recipe" %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary btn-search" %>
       <% end %>
     </div>

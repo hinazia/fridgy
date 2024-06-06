@@ -47,7 +47,7 @@
     <% end %>
     <!-- select ingredients section -->
     <%= form_with url: "/set_meal_type", method: :get do |f| %>
-      <h2>Choose your ingredients</h2>
+      <h2 style="margin-bottom: 30px;">Choose your ingredients:</h2>
       <div style="max-height: 200px; overflow-y: auto;">
         <div class="ingredient-checkbox">
           <% @ingredients.each do |ingredient| %>
