@@ -1,10 +1,14 @@
-<h2 style="margin-top: 50px;">Choose one of these recipes:</h1>
+<h2 style="margin-top: 50px; font-size: 25px"">Choose one of these recipes:</h1>
 <div class="suggested-recipes">
   <% @recipes.each do |recipe| %>
     <div class=''>
       <%= link_to recipe_path(recipe) do  %>
         <div class="recipe-wrapper">
-          <%= cl_image_tag recipe.photo.key %>
+          <% if recipe.photo.attached? %>
+            <%= cl_image_tag recipe.photo.key, class: "recipe-image"%>
+          <% else %>
+            <%= image_tag "food_placeholder.jpeg", class: "recipe-image" %>
+          <% end %>
           <div class="recipe-text">
             <h2><%= recipe.title %></h2>
           </div>

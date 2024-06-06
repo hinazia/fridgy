@@ -3,7 +3,9 @@ class AiRecipeGeneratorJob < ApplicationJob
   queue_as :default
 
   def perform(ingredient_ids, meal_type, category, serialized_user)
-    # Do something later
+    total 100
+    counter = 0
+    at counter, "Started preparing your recipe"
     ingredients = Ingredient.where(id: ingredient_ids)
     service= ChatService.new(ingredients, meal_type, category)
 
@@ -22,9 +24,12 @@ class AiRecipeGeneratorJob < ApplicationJob
           IngredientRecipe.create(recipe: recipe, ingredient: ingredient )
         end
       end
+      counter += 25
+      at counter, "In preparation"
     end
+    at 100, "Done"
   end
-  
+
   def expiration
     @expiration ||= 60 * 60 * 24 * 30 # 30 days
   end

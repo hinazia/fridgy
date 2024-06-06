@@ -19,14 +19,6 @@
   <h2><%= @recipe.title %></h2>
   <h3>Did you like this recipe? Click on the star above!</h4>
 </div>
-<div class="recipe-ingredients">
-  <h3>The ingredients selected for the recipe:</h3>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= "#{ingredient.name}" %> - <%= "#{ingredient.amount} #{ingredient.measurement}" %></li>
-    <% end %>
-  </ul>
-</div>
 <div class="recipe-body">
   <% @recipe.content.split(/\s?\d\.\s/).reject{|c|c.empty?}.each_with_index do |line, index| %>
     <%= "#{index + 1}. #{line.strip}\n" %>
