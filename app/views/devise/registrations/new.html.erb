@@ -8,24 +8,24 @@
       <%= f.input :name,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "name" } %>
+                  input_html: { autocomplete: "name", class: 'custom-placeholder' } %>
   </div>
   <div class="form-group">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  input_html: { autocomplete: "email", class: 'custom-placeholder' }%>
   </div>
   <div class="form-group">
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: 'custom-placeholder' } %>
   </div>
   <div class="form-group">
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password", class: 'custom-placeholder' } %>
   </div>
 
   <div class="form-group">
