@@ -24,6 +24,7 @@ export default class extends Controller {
       }
         else {
           this.barTarget.style.width = `${data.progress}%`
+          this.barTarget.innerText = `${data.progress}%`
           setTimeout(() => this.checkStatus() , 3000);
         }
     })
