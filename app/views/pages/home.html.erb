@@ -15,13 +15,13 @@
   <%= simple_form_for(@ingredient) do |f| %>
     <div class="row">
       <div class="col-6">
-        <%= f.input :name, placeholder: 'your Ingredient', label: false %>
+        <%= f.input :name, placeholder: 'your Ingredient', label: false, input_html: { class: 'custom-placeholder' } %>
       </div>
       <div class="col-3">
-        <%= f.input :measurement, collection: Ingredient::MEASUREMENTS, placeholder: 'Measurement', label: false%>
+        <%= f.input :measurement, collection: Ingredient::MEASUREMENTS, placeholder: 'Measurement', label: false, input_html: { class: 'custom-placeholder' } %>
       </div>
       <div class="col-3">
-        <%= f.input  :amount, label: false, as: :numeric, input_html: { min: '0', step: 'any' }  %>
+        <%= f.input  :amount, label: false, as: :numeric, input_html: { min: '0', step: 'any' }, input_html: { class: 'custom-placeholder' }  %>
       </div>
     </div>
     <div class="row">
