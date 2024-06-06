@@ -1,8 +1,7 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = current_user.ingredients
+    @ingredients = current_user.ingredients.order(name: :asc)
     @ingredient = Ingredient.new
-    @ingredients = Ingredient.order(name: :asc)
   end
 
   def create
@@ -44,9 +43,8 @@ class IngredientsController < ApplicationController
   end
 
   def fridgy
-    @ingredients = current_user.ingredients
+    @ingredients = current_user.ingredients.order(name: :asc)
     @ingredient = Ingredient.new
-    @ingredients = Ingredient.order(name: :asc)
   end
 
   private

@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: #f9f8f3;
 }
 
 .center {
@@ -27,11 +27,13 @@ body {
 
     .user-info-text {
       h1 {
+        font-family: poppins;
         margin: 0;
       }
 
       p {
         margin: 0;
+        color:#1a1a1a;
       }
     }
   }
@@ -116,4 +118,17 @@ h3 {
   gap: 1rem;
 // display: grid;
 // grid-template-columns: 1fr 1fr;
+}
+
+.custom-placeholder {
+  background-color:rgb(255, 255, 255);
+  border-color: #ffa76c;
+}
+
+h2 {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 20px;
+  padding:-10px;
+  margin:0%;
 }

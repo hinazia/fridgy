@@ -29,7 +29,7 @@
       <h3>Select measurement:</h3>
       <div class="container-input">
         <div class="w-100">
-          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false, input_html: { class: 'custom-placeholder' } %>
         </div>
       </div>
     </div>

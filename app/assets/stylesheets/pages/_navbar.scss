@@ -3,8 +3,8 @@
 
 .navbar {
   overflow: hidden;
-  background-color: #ffffff;
-  border-top: #d7d7d7 1px solid;
+  background-color: #f8efde;
+  border-top: #ffa143 1px solid;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -16,7 +16,7 @@
 
 .navbar a {
   display: block;
-  color: #d7d7d7;
+  color: #FE6D0E;
   text-align: center;
   padding: 12px 18px;
   text-decoration: none;
@@ -27,7 +27,7 @@
 }
 
 .navbar a:hover {
-  background: #f1f1f1;
+  background: #FE6D0E;
   color: black;
   border-radius: 15px;
 }

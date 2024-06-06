@@ -1,0 +1,17 @@
+
+.animation {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin-top: 150px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: #FE6D0E;
+  animation: progress 2s linear infinite;
+}

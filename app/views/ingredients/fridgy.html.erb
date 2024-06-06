@@ -1,6 +1,6 @@
 <div class="header">
-  <h2>Welcome to your Fridgy!</h2>
-  <h3>Here you can update your available ingredients.</h3>
+  <h2>Your Fridgy, Your Way</h2>
+  <p>Keep track of what you have in stock.</p>
 </div>
 <div class="container justify-content-center col-12 col-lg-6">
   <div style="max-height: 200px; overflow-y: auto;">
@@ -69,7 +69,7 @@
       <h3>Select measurement:</h3>
       <div class="container-input">
         <div class="w-100">
-          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false%>
+          <%= f.input :measurement, placeholder: "Please select", collection: Ingredient::MEASUREMENTS, label: false, input_html: { class: 'custom-placeholder' }%>
         </div>
       </div>
     </div>
