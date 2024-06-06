@@ -26,7 +26,8 @@ class RecipesController < ApplicationController
   def job_status
     @job_id =  params[:job_id] if params[:job_id].present?
     status = Sidekiq::Status::status(@job_id)
-    render json: {status: status }
+    progress = Sidekiq::Status::pct_complete @job_id
+    render json: {status: status, progress: progress}
   end
 
   def show
