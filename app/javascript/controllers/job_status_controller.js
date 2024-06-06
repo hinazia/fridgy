@@ -5,8 +5,13 @@ export default class extends Controller {
   static values = {
     jobId: String
   }
+
+  static targets = ["bar"]
+
+
   connect() {
     this.checkStatus();
+
   }
 
   checkStatus() {
@@ -14,10 +19,11 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
       if (data.status === "complete"){
+        this.barTarget.style.width = `${data.progress}%`
         window.location.href = "/recipes"
       }
         else {
-
+          this.barTarget.style.width = `${data.progress}%`
           setTimeout(() => this.checkStatus() , 3000);
         }
     })
