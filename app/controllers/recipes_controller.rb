@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.update(favourite: !@recipe.favourite)
     @recipe.save
-    redirect_to @recipe
+    redirect_to recipe_path(@recipe)
   end
 
   def list_favourites
