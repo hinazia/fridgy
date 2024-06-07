@@ -1,4 +1,4 @@
-<h2 style="margin-top: 50px; font-size: 25px">Favorite Recipes</h2>
+<h2 style="margin-top: 50px; font-size: 25px; margin-bottom: 30px">Favorite Recipes</h2>
 <div class="container">
   <div class="row justify-content-center my-3">
     <div class="col-12 col-md-8 col-lg-6">
@@ -11,7 +11,7 @@
 
   <div class="row justify-content-center">
     <% @recipes.each do |recipe| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-4">
+      <div class="center">
         <%= link_to recipe_path(recipe), class: 'card-link' do %>
           <div class="card">
             <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= recipe.photo.attached? ? cl_image_path(recipe.photo.key) : asset_path('food_placeholder.jpg') %>);">
