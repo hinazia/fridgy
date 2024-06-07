@@ -13,24 +13,24 @@ class Recipe < ApplicationRecord
       tsearch: { prefix: true }
   }
 
-  #after_save if: -> { saved_change_to_title? || saved_change_to_content? } do
-   # set_photo
-  #end
+  after_save if: -> { saved_change_to_title? || saved_change_to_content? } do
+   set_photo
+  end
 
-  #private
+  private
 
-  #def #set_photo
-    #client = OpenAI::Client.new
-    #response = client.images.generate(parameters: {
-    #  prompt: "A recipe image of #{title}", size: "256x256"
-    #})
+  def set_photo
+    client = OpenAI::Client.new
+    response = client.images.generate(parameters: {
+     prompt: "A recipe image of #{title}", size: "256x256"
+    })
 
-    #url = response["data"][0]["url"]
-    #file =  URI.open(url)
+    url = response["data"][0]["url"]
+    file =  URI.open(url)
 
-    #photo.purge if photo.attached?
-    #photo.attach(io: file, filename: "ai_generated_image.jpg", content_type: "image/png")
-    #return photo
-  #end
+    photo.purge if photo.attached?
+    photo.attach(io: file, filename: "ai_generated_image.jpg", content_type: "image/png")
+    return photo
+  end
 
 end
