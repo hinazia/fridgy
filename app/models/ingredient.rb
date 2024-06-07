@@ -6,6 +6,6 @@ class Ingredient < ApplicationRecord
 
   MEASUREMENTS = ['ml', 'l', 'g', 'kg', 'tsp', 'tbsp', 'piece']
   MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner']
-  CATEGORIES = ['Balkan', 'French', 'Indian', 'Italian', 'Japanese', 'Korean', 'Latin American', 'Mexican', 'Pakistani', 'Spanish', 'Thai', 'Vietnamese']
+  CATEGORIES = ['Balkan', 'French', 'Indian', 'Italian', 'Japanese', 'Korean', 'American', 'LatinAmerican', 'Pakistani', 'Spanish', 'Thai', 'Vietnamese']
 
 end
