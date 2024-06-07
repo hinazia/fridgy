@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   def create
     session[:category] = params[:category] if params[:category]
     # Find ingredients based on [session ingredient_ids]
-    ingredient_ids = session[:ingredient_ids]
+    ingredient_ids = session[:ingredients_ids]
     meal_type = session[:meal_type]
     category = session[:category]
     #=> #<GlobalID:0x000055988bc4dd20 [...] gid://background-jobs-demo/User/1>>
